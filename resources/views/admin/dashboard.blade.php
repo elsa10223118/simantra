@@ -50,6 +50,13 @@
                 </li>
 
                 <li class="nav-item mb-2">
+                    <a href="/sbml" class="nav-link">
+                        <i class="bi bi-cash-stack me-2"></i>
+                        SBML
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
                     <a href="/transaksi" class="nav-link">
                         <i class="bi bi-receipt me-2"></i>
                         Transaksi

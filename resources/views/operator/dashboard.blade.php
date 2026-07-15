@@ -50,7 +50,7 @@
             <h2 class="fw-bold text-primary">Dashboard Operator</h2>
 
             <p class="text-muted">
-                Selamat datang di Sistem Informasi Alokasi Pekerjaan dan Honor Mitra (SIMANTRA).
+                Selamat datang di Sistem Informasi Monitoring Alokasi Pekerjaan dan Honor Mitra (SIMANTRA).
             </p>
 
             <!-- Informasi Akun -->

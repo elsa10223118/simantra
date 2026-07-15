@@ -32,6 +32,12 @@ Route::get('/tahun', function () {
 Route::get('/tahun/create', function () {
     return view('admin.tahun.create');
 });
+Route::get('/sbml', function () {
+    return view('admin.sbml.index');
+});
+Route::get('/sbml/create', function () {
+    return view('admin.sbml.create');
+});
 Route::get('/transaksi', function () {
     return view('admin.transaksi.index');
 });
