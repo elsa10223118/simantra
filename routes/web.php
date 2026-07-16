@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TahunController;
 
 Route::get('/', function () {
     return view('login');
@@ -26,12 +27,12 @@ Route::get('/mata-anggaran', function () {
 Route::get('/mata-anggaran/create', function () {
     return view('admin.mata-anggaran.create');
 });
-Route::get('/tahun', function () {
-    return view('admin.tahun.index');
-});
-Route::get('/tahun/create', function () {
-    return view('admin.tahun.create');
-});
+Route::resource('tahun', TahunController::class)->only([
+    'index',
+    'create',
+    'store'
+]);
+
 Route::get('/sbml', function () {
     return view('admin.sbml.index');
 });
