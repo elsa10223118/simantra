@@ -45,7 +45,7 @@
                     </select>
                 </div>
 
-                <!-- Mitra -->
+                <!-- Nama Mitra -->
                 <div class="mb-3">
                     <label class="form-label">Nama Mitra</label>
                     <input type="text" class="form-control" placeholder="Masukkan Nama Mitra">
@@ -73,10 +73,13 @@
                     </select>
                 </div>
 
-                <!-- Tanggal -->
+                <!-- Tanggal Kegiatan -->
                 <div class="mb-4">
-                    <label class="form-label">Tanggal</label>
-                    <input type="date" class="form-control">
+                    <label class="form-label">Tanggal Kegiatan</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        value="{{ date('Y-m-d') }}">
                 </div>
 
                 <!-- Tombol -->

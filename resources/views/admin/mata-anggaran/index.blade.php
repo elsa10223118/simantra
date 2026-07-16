@@ -40,7 +40,7 @@
                             <th>Satuan</th>
                             <th>Harga</th>
                             <th>Total</th>
-                            <th>Waktu / Jadwal</th>
+                            <th>Periode Kegiatan</th>
                             <th>Aksi</th>
                         </tr>
 
@@ -59,7 +59,7 @@
                             <td>Orang</td>
                             <td>150.000</td>
                             <td>1.500.000</td>
-                            <td>15 Juli 2026</td>
+                            <td>15 Juli 2026 - 30 Agustus 2026</td>
 
                             <td>
                                 <div class="d-flex gap-2">
