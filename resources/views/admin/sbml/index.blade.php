@@ -97,12 +97,12 @@
 
                 <table class="table table-bordered table-hover align-middle">
 
-                    <thead class="table-primary text-center">
+                    <thead class="table-primary">
 
                         <tr>
                             <th>No</th>
                             <th>Tahun</th>
-                            <th>Operator</th>
+                            <th>Nama Operator</th>
                             <th>Bidang</th>
                             <th>Nama Mitra</th>
                             <th>Kegiatan</th>
