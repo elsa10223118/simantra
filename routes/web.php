@@ -15,6 +15,9 @@ Route::get('/pegawai', function () {
 Route::get('/pegawai/create', function () {
     return view('admin.pegawai.create');
 });
+Route::get('/pegawai/edit', function () {
+    return view('admin.pegawai.edit');
+});
 Route::get('/mitra', function () {
     return view('admin.mitra.index');
 });

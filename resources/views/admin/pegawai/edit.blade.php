@@ -5,10 +5,10 @@
 <div class="dashboard">
     <div class="container-fluid p-4">
 
-        <h2>Tambah Akun Pegawai</h2>
+        <h2>Edit Akun Pegawai</h2>
 
         <p class="text-muted">
-            Tambahkan akun pegawai baru untuk mengakses sistem SIMANTRA.
+            Ubah informasi akun pegawai yang terdaftar pada sistem SIMANTRA.
         </p>
 
         <div class="card p-4 mt-4">
@@ -16,13 +16,14 @@
             <form method="POST" enctype="multipart/form-data">
 
                 @csrf
+                @method('PUT')
 
                 <div class="mb-3">
                     <label class="form-label">NIP</label>
                     <input
                         type="text"
                         class="form-control"
-                        placeholder="Masukkan NIP">
+                        value="1987654321">
                 </div>
 
                 <div class="mb-3">
@@ -30,7 +31,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        placeholder="Masukkan Nama Pegawai">
+                        value="Admin BPS">
                 </div>
 
                 <div class="mb-3">
@@ -38,7 +39,7 @@
                     <input
                         type="text"
                         class="form-control"
-                        placeholder="Masukkan Nomor HP">
+                        value="081234567890">
                 </div>
 
                 <div class="mb-3">
@@ -46,6 +47,10 @@
                     <input
                         type="file"
                         class="form-control">
+
+                    <small class="text-muted">
+                        Kosongkan jika foto tidak ingin diubah.
+                    </small>
                 </div>
 
                 <div class="mb-3">
@@ -53,57 +58,56 @@
                     <input
                         type="text"
                         class="form-control"
-                        placeholder="Masukkan Username">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input
-                        type="password"
-                        class="form-control"
-                        placeholder="Masukkan Password">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Konfirmasi Password</label>
-                    <input
-                        type="password"
-                        class="form-control"
-                        placeholder="Masukkan kembali Password">
+                        value="admin">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Role</label>
+
                     <select class="form-select">
-                        <option selected disabled>Pilih Role</option>
+
                         <option>Admin</option>
+
                         <option>Operator</option>
+
                     </select>
+
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Bidang</label>
+
                     <select class="form-select">
-                        <option selected disabled>Pilih Bidang</option>
+
                         <option>Tata Usaha</option>
                         <option>Sosial</option>
                         <option>Nerwilis</option>
                         <option>Distribusi</option>
                         <option>IPDS</option>
                         <option>Produksi</option>
+
                     </select>
+
                 </div>
 
                 <div class="mt-4">
 
-                    <button type="submit" class="btn btn-primary">
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
                         <i class="bi bi-check-circle me-1"></i>
-                        Simpan
+                        Simpan Perubahan
+
                     </button>
 
-                    <a href="/pegawai" class="btn btn-secondary">
+                    <a
+                        href="/pegawai"
+                        class="btn btn-secondary">
+
                         <i class="bi bi-arrow-left me-1"></i>
                         Kembali
+
                     </a>
 
                 </div>
