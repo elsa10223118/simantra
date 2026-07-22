@@ -63,11 +63,13 @@
 
                             <td>
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-warning btn-sm">
+                                    <a href="/mata-anggaran/edit" class="btn btn-warning btn-sm">
                                         Edit
-                                    </button>
+                                    </a>
 
-                                    <button class="btn btn-danger btn-sm">
+                                    <button class="btn btn-danger btn-sm"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#hapusMataAnggaranModal">
                                         Hapus
                                     </button>
                                 </div>
@@ -85,5 +87,59 @@
 
     </div>
 </div>
+<!-- Modal Hapus Mata Anggaran -->
+<div class="modal fade" id="hapusMataAnggaranModal" tabindex="-1" aria-labelledby="hapusMataAnggaranModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="hapusMataAnggaranModalLabel">
+                    <i class="bi bi-trash"></i> Hapus Mata Anggaran
+                </h5>
+
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <p>Apakah Anda yakin ingin menghapus data mata anggaran berikut?</p>
+
+                <div class="mb-3">
+                    <label class="form-label">ID Mata Anggaran</label>
+                    <input type="text" class="form-control" value="MA001" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Nama Kegiatan</label>
+                    <input type="text" class="form-control" value="Pendataan Sosial Ekonomi" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Bidang</label>
+                    <input type="text" class="form-control" value="Sosial" readonly>
+                </div>
+
+                <div class="alert alert-danger mb-0">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Data mata anggaran yang dihapus tidak dapat dikembalikan.
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Batal
+                </button>
+
+                <button type="button" class="btn btn-danger">
+                    <i class="bi bi-trash"></i>
+                    Hapus
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 @endsection

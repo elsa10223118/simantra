@@ -24,11 +24,17 @@ Route::get('/mitra', function () {
 Route::get('/mitra/create', function () {
     return view('admin.mitra.create');
 });
+Route::get('/mitra/edit', function () {
+    return view('admin.mitra.edit');
+});
 Route::get('/mata-anggaran', function () {
     return view('admin.mata-anggaran.index');
 });
 Route::get('/mata-anggaran/create', function () {
     return view('admin.mata-anggaran.create');
+});
+Route::get('/mata-anggaran/edit', function () {
+    return view('admin.mata-anggaran.edit');
 });
 Route::resource('tahun', TahunController::class)->only([
     'index',

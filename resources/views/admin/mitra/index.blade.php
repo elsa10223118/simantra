@@ -66,11 +66,13 @@
                             <td>budi@gmail.com</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-warning btn-sm">
+                                    <a href="/mitra/edit" class="btn btn-warning btn-sm">
                                         Edit
-                                    </button>
+                                    </a>
 
-                                    <button class="btn btn-danger btn-sm">
+                                    <button class="btn btn-danger btn-sm"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#hapusMitraModal">
                                         Hapus
                                     </button>
                                 </div>
@@ -87,5 +89,59 @@
 
     </div>
 </div>
+<!-- Modal Hapus Data Mitra -->
+<div class="modal fade" id="hapusMitraModal" tabindex="-1" aria-labelledby="hapusMitraModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="hapusMitraModalLabel">
+                    Hapus Data Mitra
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <p>Apakah Anda yakin ingin menghapus data mitra berikut?</p>
+
+                <table class="table table-borderless mb-3">
+                    <tr>
+                        <th width="35%">Nama Mitra</th>
+                        <td>: Budi Santoso</td>
+                    </tr>
+
+                    <tr>
+                        <th>ID Mitra / Sobat</th>
+                        <td>: SBT001</td>
+                    </tr>
+
+                    <tr>
+                        <th>NIK</th>
+                        <td>: 3201234567890001</td>
+                    </tr>
+                </table>
+
+                <div class="alert alert-danger mb-0">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Data mitra yang dihapus tidak dapat dikembalikan.
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Batal
+                </button>
+
+                <button type="button" class="btn btn-danger">
+                    Hapus
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 @endsection
