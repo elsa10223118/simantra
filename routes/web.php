@@ -92,6 +92,11 @@ Route::resource('tahun', TahunController::class)->only([
     'create',
     'store'
 ]);
+Route::resource('tahun', TahunController::class)->only([
+    'index',
+    'create',
+    'store'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +104,13 @@ Route::resource('tahun', TahunController::class)->only([
 |--------------------------------------------------------------------------
 */
 
+Route::get('/sbml', function () {
+    return view('admin.sbml.index');
+});
+
+Route::get('/sbml/create', function () {
+    return view('admin.sbml.create');
+});
 Route::get('/sbml', function () {
     return view('admin.sbml.index');
 });
