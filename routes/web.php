@@ -41,7 +41,6 @@ Route::resource('tahun', TahunController::class)->only([
     'create',
     'store'
 ]);
-
 Route::get('/sbml', function () {
     return view('admin.sbml.index');
 });
