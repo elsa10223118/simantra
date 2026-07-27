@@ -17,14 +17,15 @@ class Pegawai extends Model
     protected $fillable = [
         'nip',
         'nama_pegawai',
+        'username',
+        'password',
         'no_hp',
         'foto',
         'role_akun',
-        'operator_bidang',
+        'operator_bidang'
     ];
 
-    public function transaksis()
-    {
-        return $this->hasMany(Transaksi::class, 'nip_pegawai', 'nip');
-    }
+    protected $hidden = [
+        'password'
+    ];
 }

@@ -17,12 +17,18 @@
 
                 <h5 class="fw-bold">Daftar Tahun</h5>
 
-                <a href="/tahun/create" class="btn btn-primary">
+                <a href="{{ route('tahun.create') }}" class="btn btn-primary">
                     <i class="bi bi-plus-circle"></i>
                     Tambah Tahun
                 </a>
 
             </div>
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
             <div class="table-responsive">
 
@@ -41,26 +47,55 @@
 
                     <tbody>
 
+                        @forelse($tahuns as $index => $tahun)
+
                         <tr>
-                            <td>1</td>
-                            <td>TH001</td>
-                            <td>2026</td>
+
+                            <td>{{ $index + 1 }}</td>
+
+                            <td>{{ $tahun->id_tahun }}</td>
+
+                            <td>{{ $tahun->tahun }}</td>
 
                             <td>
+
                                 <div class="d-flex gap-2">
 
-                                    <button class="btn btn-warning btn-sm">
+                                    <a href="{{ route('tahun.edit',$tahun->id_tahun) }}"
+                                        class="btn btn-warning btn-sm">
                                         Edit
-                                    </button>
+                                    </a>
 
-                                    <button class="btn btn-danger btn-sm">
-                                        Hapus
-                                    </button>
+                                    <form action="{{ route('tahun.destroy',$tahun->id_tahun) }}"
+                                        method="POST">
+
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                            Hapus
+                                        </button>
+
+                                    </form>
 
                                 </div>
+
                             </td>
 
                         </tr>
+
+                        @empty
+
+                        <tr>
+
+                            <td colspan="4" class="text-center">
+                                Belum ada data tahun.
+                            </td>
+
+                        </tr>
+
+                        @endforelse
 
                     </tbody>
 

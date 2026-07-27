@@ -42,71 +42,88 @@
 
             </div>
 
-            <!-- Role -->
-            <div class="mb-2">
+            <form action="{{ route('login') }}" method="POST">
 
-                <label class="form-label">Role</label>
+    @csrf
 
-                <div class="input-group">
+    <!-- Role -->
+    <div class="mb-2">
 
-                    <span class="input-group-text">
-                        <i class="bi bi-people-fill"></i>
-                    </span>
+        <label class="form-label">Role</label>
 
-                    <select class="form-select">
-                        <option selected disabled>Pilih Role</option>
-                        <option>Admin</option>
-                        <option>Operator</option>
-                    </select>
+        <div class="input-group">
 
-                </div>
+            <span class="input-group-text">
+                <i class="bi bi-people-fill"></i>
+            </span>
 
-            </div>
+            <select class="form-select" name="role" required>
 
-            <!-- Username -->
-            <div class="mb-2">
+                <option value="">Pilih Role</option>
 
-                <label class="form-label">Username</label>
+                <option value="admin">Admin</option>
 
-                <div class="input-group">
+                <option value="operator">Operator</option>
 
-                    <span class="input-group-text">
-                        <i class="bi bi-person-fill"></i>
-                    </span>
+            </select>
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Masukkan username">
+        </div>
 
-                </div>
+    </div>
 
-            </div>
+    <!-- Username -->
+    <div class="mb-2">
 
-            <!-- Password -->
-            <div class="mb-2">
+        <label class="form-label">Username</label>
 
-                <label class="form-label">Password</label>
+        <div class="input-group">
 
-                <div class="input-group">
+            <span class="input-group-text">
+                <i class="bi bi-person-fill"></i>
+            </span>
 
-                    <span class="input-group-text">
-                        <i class="bi bi-lock-fill"></i>
-                    </span>
+            <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="Masukkan Username"
+                required>
 
-                    <input
-                        type="password"
-                        class="form-control"
-                        placeholder="Masukkan password">
+        </div>
 
-                </div>
+    </div>
 
-            </div>
+    <!-- Password -->
+    <div class="mb-3">
 
-            <button class="btn-login">
-                <i class="bi bi-box-arrow-in-right me-2"></i>
-                Masuk
-            </button>
+        <label class="form-label">Password</label>
+
+        <div class="input-group">
+
+            <span class="input-group-text">
+                <i class="bi bi-lock-fill"></i>
+            </span>
+
+            <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Masukkan Password"
+                required>
+
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn-login">
+
+        <i class="bi bi-box-arrow-in-right me-2"></i>
+
+        Masuk
+
+    </button>
+
+</form>
 
             <div class="forgot-password">
                 <small>

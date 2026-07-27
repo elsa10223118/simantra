@@ -17,15 +17,20 @@ return new class extends Migration
 
             $table->string('nama_pegawai');
 
+            $table->string('username')->unique();
+
+            $table->string('password');
+
             $table->string('no_hp');
 
             $table->string('foto')->nullable();
 
             $table->enum('role_akun', ['admin', 'operator']);
 
-            $table->string('operator_bidang');
+            $table->string('operator_bidang')->nullable();
 
             $table->timestamps();
+
         });
     }
 

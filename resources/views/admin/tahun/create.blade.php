@@ -13,11 +13,32 @@
 
         <div class="card p-4 mt-4">
 
-            <form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('tahun.store') }}" method="POST">
+
+                @csrf
 
                 <div class="mb-3">
+
                     <label class="form-label">Tahun</label>
-                    <input type="number" class="form-control" placeholder="Masukkan Tahun">
+
+                    <input
+                        type="number"
+                        name="tahun"
+                        class="form-control"
+                        placeholder="Masukkan Tahun"
+                        value="{{ old('tahun') }}"
+                        required>
+
                 </div>
 
                 <div class="mt-4">
@@ -27,7 +48,7 @@
                         Simpan
                     </button>
 
-                    <a href="/tahun" class="btn btn-secondary">
+                    <a href="{{ route('tahun.index') }}" class="btn btn-secondary">
                         <i class="bi bi-arrow-left"></i>
                         Kembali
                     </a>
