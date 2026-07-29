@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TahunController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PegawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,17 +34,13 @@ Route::get('/dashboard', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/pegawai', function () {
-    return view('admin.pegawai.index');
-});
-
-Route::get('/pegawai/create', function () {
-    return view('admin.pegawai.create');
-});
-
-Route::get('/pegawai/edit', function () {
-    return view('admin.pegawai.edit');
-});
+Route::resource('pegawai', PegawaiController::class)->only([
+    'index',
+    'create',
+    'store',
+    'edit',
+    'update'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -92,11 +89,7 @@ Route::resource('tahun', TahunController::class)->only([
     'create',
     'store'
 ]);
-Route::resource('tahun', TahunController::class)->only([
-    'index',
-    'create',
-    'store'
-]);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -104,13 +97,6 @@ Route::resource('tahun', TahunController::class)->only([
 |--------------------------------------------------------------------------
 */
 
-Route::get('/sbml', function () {
-    return view('admin.sbml.index');
-});
-
-Route::get('/sbml/create', function () {
-    return view('admin.sbml.create');
-});
 Route::get('/sbml', function () {
     return view('admin.sbml.index');
 });

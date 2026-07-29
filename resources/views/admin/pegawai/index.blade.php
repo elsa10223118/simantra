@@ -46,61 +46,98 @@
 
                     <tbody>
 
-                        <tr>
+@forelse($pegawais as $pegawai)
 
-                            <td>1</td>
-                            <td>1987654321</td>
-                            <td>Admin BPS</td>
-                            <td>081234567890</td>
+<tr>
 
-                            <td>
-                                <img
-                                    src="https://via.placeholder.com/40"
-                                    width="40"
-                                    height="40"
-                                    class="rounded-circle">
-                            </td>
+    <td>{{ $loop->iteration }}</td>
 
-                            <td>admin</td>
-                            <td>Admin</td>
-                            <td>Tata Usaha</td>
+    <td>{{ $pegawai->nip }}</td>
 
-                            <td>
+    <td>{{ $pegawai->nama_pegawai }}</td>
 
-                                <div class="d-flex gap-2">
+    <td>{{ $pegawai->no_hp }}</td>
 
-                                    <a href="/pegawai/edit" class="btn btn-warning btn-sm">
-                                        <i class="bi bi-pencil-square"></i>
-                                        Edit
-                                    </a>
+    <td>
 
-                                    <button
-                                        class="btn btn-info btn-sm text-white"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#resetPasswordModal">
+        @if($pegawai->foto)
 
-                                        <i class="bi bi-key-fill"></i>
-                                        Reset Password
+            <img
+                src="{{ asset('storage/'.$pegawai->foto) }}"
+                width="40"
+                height="40"
+                class="rounded-circle">
 
-                                    </button>
+        @else
 
-                                    <button
-                                        class="btn btn-danger btn-sm"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#hapusPegawaiModal">
+            <img
+                src="https://via.placeholder.com/40"
+                width="40"
+                height="40"
+                class="rounded-circle">
 
-                                        <i class="bi bi-trash"></i>
-                                        Hapus
+        @endif
 
-                                    </button>
+    </td>
 
-                                </div>
+    <td>{{ $pegawai->username }}</td>
 
-                            </td>
+    <td>{{ ucfirst($pegawai->role_akun) }}</td>
 
-                        </tr>
+    <td>{{ $pegawai->operator_bidang ?? '-' }}</td>
 
-                    </tbody>
+    <td>
+
+        <div class="d-flex gap-2">
+
+            <a href="{{ route('pegawai.edit', $pegawai->nip) }}"
+                 class="btn btn-warning btn-sm">
+
+            <i class="bi bi-pencil-square"></i>
+
+            Edit
+
+        </a>
+
+            <button
+                class="btn btn-info btn-sm text-white">
+
+                <i class="bi bi-key-fill"></i>
+
+                Reset Password
+
+            </button>
+
+            <button
+                class="btn btn-danger btn-sm">
+
+                <i class="bi bi-trash"></i>
+
+                Hapus
+
+            </button>
+
+        </div>
+
+    </td>
+
+</tr>
+
+@empty
+
+<tr>
+
+    <td colspan="9" class="text-center">
+
+        Belum ada data pegawai.
+
+    </td>
+
+</tr>
+
+@endforelse
+
+</tbody>
 
                 </table>
 

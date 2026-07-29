@@ -13,7 +13,7 @@
 
         <div class="card p-4 mt-4">
 
-            <form method="POST" enctype="multipart/form-data">
+            <form action="{{ route('pegawai.update', $pegawai->nip) }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
                 @method('PUT')
@@ -22,53 +22,71 @@
                     <label class="form-label">NIP</label>
                     <input
                         type="text"
+                        name="nip"
                         class="form-control"
-                        value="1987654321">
+                        value="{{ old('nip', $pegawai->nip) }}"
+                        readonly>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Nama Pegawai</label>
                     <input
                         type="text"
+                        name="nama_pegawai"
                         class="form-control"
-                        value="Admin BPS">
+                        value="{{ old('nama_pegawai', $pegawai->nama_pegawai) }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">No. HP</label>
                     <input
                         type="text"
+                        name="no_hp"
                         class="form-control"
-                        value="081234567890">
+                        value="{{ old('no_hp', $pegawai->no_hp) }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Foto</label>
+
                     <input
                         type="file"
+                        name="foto"
                         class="form-control">
 
                     <small class="text-muted">
                         Kosongkan jika foto tidak ingin diubah.
                     </small>
+
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Username</label>
                     <input
                         type="text"
+                        name="username"
                         class="form-control"
-                        value="admin">
+                        value="{{ old('username', $pegawai->username) }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Role</label>
 
-                    <select class="form-select">
+                    <select
+                        name="role_akun"
+                        class="form-select"
+                        required>
 
-                        <option>Admin</option>
+                        <option value="admin" {{ $pegawai->role_akun == 'admin' ? 'selected' : '' }}>
+                            Admin
+                        </option>
 
-                        <option>Operator</option>
+                        <option value="operator" {{ $pegawai->role_akun == 'operator' ? 'selected' : '' }}>
+                            Operator
+                        </option>
 
                     </select>
 
@@ -77,14 +95,21 @@
                 <div class="mb-3">
                     <label class="form-label">Bidang</label>
 
-                    <select class="form-select">
+                    <select
+                        name="operator_bidang"
+                        class="form-select">
 
-                        <option>Tata Usaha</option>
-                        <option>Sosial</option>
-                        <option>Nerwilis</option>
-                        <option>Distribusi</option>
-                        <option>IPDS</option>
-                        <option>Produksi</option>
+                        <option value="Tata Usaha" {{ $pegawai->operator_bidang == 'Tata Usaha' ? 'selected' : '' }}>Tata Usaha</option>
+
+                        <option value="Sosial" {{ $pegawai->operator_bidang == 'Sosial' ? 'selected' : '' }}>Sosial</option>
+
+                        <option value="Nerwilis" {{ $pegawai->operator_bidang == 'Nerwilis' ? 'selected' : '' }}>Nerwilis</option>
+
+                        <option value="Distribusi" {{ $pegawai->operator_bidang == 'Distribusi' ? 'selected' : '' }}>Distribusi</option>
+
+                        <option value="IPDS" {{ $pegawai->operator_bidang == 'IPDS' ? 'selected' : '' }}>IPDS</option>
+
+                        <option value="Produksi" {{ $pegawai->operator_bidang == 'Produksi' ? 'selected' : '' }}>Produksi</option>
 
                     </select>
 
@@ -102,7 +127,7 @@
                     </button>
 
                     <a
-                        href="/pegawai"
+                        href="{{ route('pegawai.index') }}"
                         class="btn btn-secondary">
 
                         <i class="bi bi-arrow-left me-1"></i>

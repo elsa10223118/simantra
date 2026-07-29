@@ -13,7 +13,7 @@
 
         <div class="card p-4 mt-4">
 
-            <form method="POST" enctype="multipart/form-data">
+            <form action="{{ route('pegawai.store') }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
 
@@ -21,30 +21,40 @@
                     <label class="form-label">NIP</label>
                     <input
                         type="text"
+                        name="nip"
                         class="form-control"
-                        placeholder="Masukkan NIP">
+                        placeholder="Masukkan NIP"
+                        value="{{ old('nip') }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Nama Pegawai</label>
                     <input
                         type="text"
+                        name="nama_pegawai"
                         class="form-control"
-                        placeholder="Masukkan Nama Pegawai">
+                        placeholder="Masukkan Nama Pegawai"
+                        value="{{ old('nama_pegawai') }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">No. HP</label>
                     <input
                         type="text"
+                        name="no_hp"
                         class="form-control"
-                        placeholder="Masukkan Nomor HP">
+                        placeholder="Masukkan Nomor HP"
+                        value="{{ old('no_hp') }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Foto</label>
                     <input
                         type="file"
+                        name="foto"
                         class="form-control">
                 </div>
 
@@ -52,46 +62,64 @@
                     <label class="form-label">Username</label>
                     <input
                         type="text"
+                        name="username"
                         class="form-control"
-                        placeholder="Masukkan Username">
+                        placeholder="Masukkan Username"
+                        value="{{ old('username') }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <input
                         type="password"
+                        name="password"
                         class="form-control"
-                        placeholder="Masukkan Password">
+                        placeholder="Masukkan Password"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Konfirmasi Password</label>
                     <input
                         type="password"
+                        name="password_confirmation"
                         class="form-control"
-                        placeholder="Masukkan kembali Password">
+                        placeholder="Masukkan kembali Password"
+                        required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Role</label>
-                    <select class="form-select">
-                        <option selected disabled>Pilih Role</option>
-                        <option>Admin</option>
-                        <option>Operator</option>
+                    <select
+                        name="role_akun"
+                        class="form-select"
+                        required>
+
+                        <option value="">Pilih Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="operator">Operator</option>
+
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Bidang</label>
-                    <select class="form-select">
-                        <option selected disabled>Pilih Bidang</option>
-                        <option>Tata Usaha</option>
-                        <option>Sosial</option>
-                        <option>Nerwilis</option>
-                        <option>Distribusi</option>
-                        <option>IPDS</option>
-                        <option>Produksi</option>
+
+                    <select
+                        name="operator_bidang"
+                        class="form-select">
+
+                        <option value="">Pilih Bidang</option>
+                        <option value="Tata Usaha">Tata Usaha</option>
+                        <option value="Sosial">Sosial</option>
+                        <option value="Nerwilis">Nerwilis</option>
+                        <option value="Distribusi">Distribusi</option>
+                        <option value="IPDS">IPDS</option>
+                        <option value="Produksi">Produksi</option>
+
                     </select>
+
                 </div>
 
                 <div class="mt-4">
@@ -101,7 +129,7 @@
                         Simpan
                     </button>
 
-                    <a href="/pegawai" class="btn btn-secondary">
+                    <a href="{{ route('pegawai.index') }}" class="btn btn-secondary">
                         <i class="bi bi-arrow-left me-1"></i>
                         Kembali
                     </a>
@@ -113,6 +141,7 @@
         </div>
 
     </div>
+
 </div>
 
 @endsection
