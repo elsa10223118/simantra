@@ -84,11 +84,23 @@ Route::get('/mata-anggaran/edit', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::resource('tahun', TahunController::class)->only([
-    'index',
-    'create',
-    'store'
-]);
+// Route::resource('tahun', TahunController::class)->only([
+//  'index',
+//  'create',
+//  'store'
+// ]);
+
+Route::get('/tahun', function () {
+    return view('admin.tahun.index');
+});
+Route::get('/tahun/create', function () {
+    return view('admin.tahun.create');
+});
+Route::get('/tahun/edit', function () {
+    return view('admin.tahun.edit');
+});
+
+
 
 
 /*
